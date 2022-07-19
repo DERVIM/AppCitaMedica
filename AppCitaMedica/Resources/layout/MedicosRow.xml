@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+     android:background="@android:color/holo_blue_dark"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Nombres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          android:textColor="@android:color/white"
+        android:layout_weight="17"
+        android:textSize="20dp"
+        android:id="@+id/textNombres" />
+    <TextView
+        android:text="Apellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          android:textColor="@android:color/white"
+        android:layout_weight="19"
+        android:textSize="20dp"
+        android:id="@+id/textApellidos" />
+    <TextView
+        android:text="Email"
+        android:layout_width="match_parent"
+          android:textColor="@android:color/white"
+        android:layout_height="wrap_content"
+        android:layout_weight="19"
+        android:textSize="20dp"
+        android:id="@+id/textEmail" />
+    <TextView
+        android:text="Telefono"
+        android:layout_width="match_parent"
+          android:textColor="@android:color/white"
+        android:layout_height="wrap_content"
+        android:layout_weight="19"
+        android:textSize="20dp"
+        android:id="@+id/texttelefono" />
+
+</LinearLayout>

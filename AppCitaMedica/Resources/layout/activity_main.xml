@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="?android:attr/colorAccent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView1" />
+
+    <TextView
+        android:text="@string/txtUsuario"
+        android:textSize="20dp"
+        android:paddingVertical="5dp"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/background_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1" />
+    <EditText
+        android:inputType="textPersonName"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/background_light"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/usuario" />
+    <TextView
+        android:text="@string/txtContraseña"
+        android:textSize="20dp"
+        android:paddingVertical="5dp"
+        android:textColor="@android:color/background_light"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <EditText
+        android:inputType="textPassword"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/background_light"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/contraseña" />
+    <Button
+        android:text="@string/btnIngresar"
+        android:layout_width="150dp"
+        android:layout_marginVertical="10dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/btnIngresar" />
+    <TextView
+        android:text="Aun no tiene un usuario?"
+        android:gravity="center_horizontal"
+        android:textSize="20dp"
+        android:textColor="@android:color/background_light"
+        android:paddingVertical="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
+    <Button
+        android:text="@string/btnRegistrar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/btnRegistrar" />
+</LinearLayout>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">AppCitaMedica</string>
+    <string name="action_settings">Settings</string>
+
+	<string name="txtTitulo">Bienvenidos a Citas Medicas</string>
+	<string name="txtUsuario">Usuario</string>
+	<string name="txtContraseña">Contraseña</string>
+	<string name="btnIngresar">Ingresar</string>
+	<string name="txtcrear">Aun no tiene un usuario?</string>
+	<string name="btnIngresar2">Ingresar</string>
+	<string name="txtOpcion">Elija una opción</string>
+	<string name="btnCitas">CITAS</string>
+	<string name="btnMedicos">MEDICOS DISPONIBLES</string>
+	<string name="btnInformacion">INFORMACION</string>
+	<string name="txtEmail">Email</string>
+	<string name="txtNombres">Nombres</string>
+	<string name="txtApellidos">Apellidos</string>
+	<string name="txTelefono">Telefono</string>
+	<string name="btnRegistrar">Registrarse</string>
+	<string name="txtFecha">Fecha</string>
+
+
+</resources>

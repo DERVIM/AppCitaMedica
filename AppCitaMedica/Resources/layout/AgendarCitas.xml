@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/holo_blue_dark"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+      <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView1" />
+
+    <TextView
+        android:text="@string/txtFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+      
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:id="@+id/textView1" />
+   <EditText
+        android:inputType="textPersonName"      
+        android:layout_gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:background="@android:color/white"
+        android:layout_height="wrap_content"
+        android:id="@+id/Fecha" />
+     <TextView
+        android:text="@string/txTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp"
+        android:textSize="20dp"
+       android:paddingTop="50dp"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:id="@+id/textView2" />
+    <EditText
+        android:inputType="textPersonName"      
+        android:layout_gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:background="@android:color/white"
+        android:layout_height="wrap_content"
+        android:id="@+id/Telefono" />
+    <TextView
+        android:text="Descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp"
+        android:textSize="20dp"
+       android:paddingTop="50dp"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:id="@+id/textView8" />
+    <EditText
+        android:inputType="textPersonName"      
+        android:layout_gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:background="@android:color/white"
+        android:layout_height="wrap_content"
+        android:id="@+id/Descripcion" />
+    <TextView
+        android:text="cliente"
+        android:textSize="20dp"
+         android:paddingVertical="5dp"
+        android:textColor="@android:color/white"
+         android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
+
+     <Spinner
+        
+       android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/spinnerCliente" />
+    <TextView
+        android:text="clinica"
+        android:textSize="20dp"
+         android:paddingVertical="5dp"
+         android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+       android:textColor="@android:color/white"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5" />
+     <Spinner
+       
+        android:layout_height="wrap_content"  
+         android:layout_width="200dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/spinnerClinica" />
+    <Button
+        android:text="Agendar"
+         android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/btnAgendar" />
+</LinearLayout>
+

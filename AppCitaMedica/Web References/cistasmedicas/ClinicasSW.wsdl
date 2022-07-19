@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LogueoUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogueoUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogueoUsuarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarUsuarioAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarUsuarioAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarUsuarioAdminResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarUsuarioCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarUsuarioClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarUsuarioClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarUsuarioMedico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarUsuarioMedicoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarUsuarioMedicoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarCita">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Telefono" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Cliente" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Clinica" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarCitaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarCitaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarCita">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarCitaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarCitaResult" type="tns:ArrayOfCitaSW" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCitaSW">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CitaSW" nillable="true" type="tns:CitaSW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CitaSW">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClienteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClinicaId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nombres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Telefono" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarCliente">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarClienteResult" type="tns:ArrayOfClienteSW" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClienteSW">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClienteSW" nillable="true" type="tns:ClienteSW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClienteSW">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarMedico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nombres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Telefono" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Horario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Especialidad" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarMedicoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarMedicoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarMedico">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarMedicoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarMedicoResult" type="tns:ArrayOfMedicoSW" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMedicoSW">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MedicoSW" nillable="true" type="tns:MedicoSW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MedicoSW">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HorarioId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EspecialidadId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListarClinica">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarClinicaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarClinicaResult" type="tns:ArrayOfClinicaSW" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClinicaSW">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClinicaSW" nillable="true" type="tns:ClinicaSW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClinicaSW">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreClinica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Latitud" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Longitud" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MedicoId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListarCliente2">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarCliente2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarCliente2Result" type="tns:ArrayOfClienteSW" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarHorario">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarHorarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarHorarioResult" type="tns:ArrayOfHorarioSW" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHorarioSW">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HorarioSW" nillable="true" type="tns:HorarioSW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HorarioSW">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MedicoId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HoraInicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HoraFin" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiaId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListarEspecialidad">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarEspecialidadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarEspecialidadResult" type="tns:ArrayOfEspecialidadSW" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEspecialidadSW">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EspecialidadSW" nillable="true" type="tns:EspecialidadSW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EspecialidadSW">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Honorarios" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LogueoUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:LogueoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="LogueoUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:LogueoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarUsuarioAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioAdmin" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarUsuarioAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarUsuarioClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioCliente" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarUsuarioClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarUsuarioMedicoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioMedico" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarUsuarioMedicoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioMedicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarCitaSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarCita" />
+  </wsdl:message>
+  <wsdl:message name="AgregarCitaSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarCitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarCitaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarCita" />
+  </wsdl:message>
+  <wsdl:message name="ListarCitaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarCitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarCliente" />
+  </wsdl:message>
+  <wsdl:message name="AgregarClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarCliente" />
+  </wsdl:message>
+  <wsdl:message name="ListarClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarMedicoSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarMedico" />
+  </wsdl:message>
+  <wsdl:message name="AgregarMedicoSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarMedicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarMedicoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarMedico" />
+  </wsdl:message>
+  <wsdl:message name="ListarMedicoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarMedicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarClinicaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarClinica" />
+  </wsdl:message>
+  <wsdl:message name="ListarClinicaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarClinicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarCliente2SoapIn">
+    <wsdl:part name="parameters" element="tns:ListarCliente2" />
+  </wsdl:message>
+  <wsdl:message name="ListarCliente2SoapOut">
+    <wsdl:part name="parameters" element="tns:ListarCliente2Response" />
+  </wsdl:message>
+  <wsdl:message name="ListarHorarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarHorario" />
+  </wsdl:message>
+  <wsdl:message name="ListarHorarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarEspecialidadSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarEspecialidad" />
+  </wsdl:message>
+  <wsdl:message name="ListarEspecialidadSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarEspecialidadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ClinicasSWSoap">
+    <wsdl:operation name="LogueoUsuario">
+      <wsdl:input message="tns:LogueoUsuarioSoapIn" />
+      <wsdl:output message="tns:LogueoUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioAdmin">
+      <wsdl:input message="tns:RegistrarUsuarioAdminSoapIn" />
+      <wsdl:output message="tns:RegistrarUsuarioAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioCliente">
+      <wsdl:input message="tns:RegistrarUsuarioClienteSoapIn" />
+      <wsdl:output message="tns:RegistrarUsuarioClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioMedico">
+      <wsdl:input message="tns:RegistrarUsuarioMedicoSoapIn" />
+      <wsdl:output message="tns:RegistrarUsuarioMedicoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCita">
+      <wsdl:input message="tns:AgregarCitaSoapIn" />
+      <wsdl:output message="tns:AgregarCitaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCita">
+      <wsdl:input message="tns:ListarCitaSoapIn" />
+      <wsdl:output message="tns:ListarCitaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCliente">
+      <wsdl:input message="tns:AgregarClienteSoapIn" />
+      <wsdl:output message="tns:AgregarClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCliente">
+      <wsdl:input message="tns:ListarClienteSoapIn" />
+      <wsdl:output message="tns:ListarClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarMedico">
+      <wsdl:input message="tns:AgregarMedicoSoapIn" />
+      <wsdl:output message="tns:AgregarMedicoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarMedico">
+      <wsdl:input message="tns:ListarMedicoSoapIn" />
+      <wsdl:output message="tns:ListarMedicoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarClinica">
+      <wsdl:input message="tns:ListarClinicaSoapIn" />
+      <wsdl:output message="tns:ListarClinicaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCliente2">
+      <wsdl:input message="tns:ListarCliente2SoapIn" />
+      <wsdl:output message="tns:ListarCliente2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarHorario">
+      <wsdl:input message="tns:ListarHorarioSoapIn" />
+      <wsdl:output message="tns:ListarHorarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEspecialidad">
+      <wsdl:input message="tns:ListarEspecialidadSoapIn" />
+      <wsdl:output message="tns:ListarEspecialidadSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClinicasSWSoap" type="tns:ClinicasSWSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LogueoUsuario">
+      <soap:operation soapAction="http://tempuri.org/LogueoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioAdmin">
+      <soap:operation soapAction="http://tempuri.org/RegistrarUsuarioAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioCliente">
+      <soap:operation soapAction="http://tempuri.org/RegistrarUsuarioCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioMedico">
+      <soap:operation soapAction="http://tempuri.org/RegistrarUsuarioMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCita">
+      <soap:operation soapAction="http://tempuri.org/AgregarCita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCita">
+      <soap:operation soapAction="http://tempuri.org/ListarCita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCliente">
+      <soap:operation soapAction="http://tempuri.org/AgregarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCliente">
+      <soap:operation soapAction="http://tempuri.org/ListarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarMedico">
+      <soap:operation soapAction="http://tempuri.org/AgregarMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMedico">
+      <soap:operation soapAction="http://tempuri.org/ListarMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarClinica">
+      <soap:operation soapAction="http://tempuri.org/ListarClinica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCliente2">
+      <soap:operation soapAction="http://tempuri.org/ListarCliente2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarHorario">
+      <soap:operation soapAction="http://tempuri.org/ListarHorario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEspecialidad">
+      <soap:operation soapAction="http://tempuri.org/ListarEspecialidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClinicasSWSoap12" type="tns:ClinicasSWSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LogueoUsuario">
+      <soap12:operation soapAction="http://tempuri.org/LogueoUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioAdmin">
+      <soap12:operation soapAction="http://tempuri.org/RegistrarUsuarioAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioCliente">
+      <soap12:operation soapAction="http://tempuri.org/RegistrarUsuarioCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuarioMedico">
+      <soap12:operation soapAction="http://tempuri.org/RegistrarUsuarioMedico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCita">
+      <soap12:operation soapAction="http://tempuri.org/AgregarCita" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCita">
+      <soap12:operation soapAction="http://tempuri.org/ListarCita" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCliente">
+      <soap12:operation soapAction="http://tempuri.org/AgregarCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCliente">
+      <soap12:operation soapAction="http://tempuri.org/ListarCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarMedico">
+      <soap12:operation soapAction="http://tempuri.org/AgregarMedico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMedico">
+      <soap12:operation soapAction="http://tempuri.org/ListarMedico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarClinica">
+      <soap12:operation soapAction="http://tempuri.org/ListarClinica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCliente2">
+      <soap12:operation soapAction="http://tempuri.org/ListarCliente2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarHorario">
+      <soap12:operation soapAction="http://tempuri.org/ListarHorario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEspecialidad">
+      <soap12:operation soapAction="http://tempuri.org/ListarEspecialidad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClinicasSW">
+    <wsdl:port name="ClinicasSWSoap" binding="tns:ClinicasSWSoap">
+      <soap:address location="http://www.cistasmedicas.somee.com/ClinicasSW.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClinicasSWSoap12" binding="tns:ClinicasSWSoap12">
+      <soap12:address location="http://www.cistasmedicas.somee.com/ClinicasSW.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

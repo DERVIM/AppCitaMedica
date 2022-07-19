@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@android:color/holo_blue_dark"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Hora Inicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          android:textColor="@android:color/white"
+        android:layout_weight="15"
+        android:layout_marginLeft="200dp"
+        android:id="@+id/textHoraInicio" />
+    <TextView
+        android:text="Honorarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          android:textColor="@android:color/white"
+        android:layout_weight="50"
+        android:id="@+id/textHoraFin" />
+</LinearLayout>
